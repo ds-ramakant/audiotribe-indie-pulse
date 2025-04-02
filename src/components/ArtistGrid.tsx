@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ArtistCard from './ArtistCard';
+import GenreSection from './GenreSection';
 import { Artist, Category } from '@/data/mockData';
 
 interface ArtistGridProps {
@@ -30,19 +30,35 @@ const ArtistGrid: React.FC<ArtistGridProps> = ({
     
     return genreMatch && cityMatch && categoryMatch;
   });
+
+  // Group artists by genre
+  const artistsByGenre = filteredArtists.reduce<Record<string, Artist[]>>((acc, artist) => {
+    const genre = artist.primaryGenre;
+    if (!acc[genre]) {
+      acc[genre] = [];
+    }
+    acc[genre].push(artist);
+    return acc;
+  }, {});
+
+  // Sort genres alphabetically
+  const sortedGenres = Object.keys(artistsByGenre).sort();
   
   return (
     <div className="container mx-auto px-4 pb-16">
       {filteredArtists.length > 0 ? (
         <>
           <p className="text-sm text-music-muted mb-6">
-            Showing {filteredArtists.length} artists
+            Showing {filteredArtists.length} artists across {sortedGenres.length} genres
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredArtists.map(artist => (
-              <ArtistCard key={artist.id} artist={artist} />
-            ))}
-          </div>
+          
+          {sortedGenres.map(genre => (
+            <GenreSection 
+              key={genre} 
+              genreName={genre} 
+              artists={artistsByGenre[genre]} 
+            />
+          ))}
         </>
       ) : (
         <div className="text-center py-16">
