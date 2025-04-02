@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				music: {
+					purple: "#6E59A5",
+					lightPurple: "#9b87f5",
+					darkPurple: "#483D6B",
+					accent: "#F97316",
+					background: "#F6F5FF",
+					cardBg: "#FFFFFF",
+					text: "#1A1F2C",
+					muted: "#8E9196"
+				},
+				category: {
+					emerging: "#22c55e",
+					veteran: "#8B5CF6",
+					favorite: "#F97316",
+					venue: "#0EA5E9",
+					critic: "#D946EF",
+					scene: "#FBBF24"
 				}
 			},
 			borderRadius: {
@@ -84,11 +103,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'pulse-gentle': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-gentle': 'pulse-gentle 2s ease-in-out infinite'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif']
 			}
 		}
 	},
