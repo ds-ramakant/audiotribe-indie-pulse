@@ -1,4 +1,3 @@
-
 export interface Artist {
   id: string;
   name: string;
@@ -190,7 +189,170 @@ export const mockArtists: Artist[] = [
   }
 ];
 
-// Helper function to get current month name
+export interface Gig {
+  id: string;
+  artistName: string;
+  genre: string;
+  date: string;
+  time: string;
+  venueName: string;
+  city: string;
+  ticketPrice: number;
+}
+
+export const mockGigs: Gig[] = [
+  {
+    id: 'g1',
+    artistName: 'Maya Soundscape',
+    genre: 'Electronic',
+    date: '2024-09-15T19:30:00',
+    time: '7:30 PM',
+    venueName: 'Antisocial',
+    city: 'Mumbai',
+    ticketPrice: 500
+  },
+  {
+    id: 'g2',
+    artistName: 'Ravi & The Beats',
+    genre: 'Jazz',
+    date: '2024-09-16T20:00:00',
+    time: '8:00 PM',
+    venueName: 'Piano Man',
+    city: 'Delhi',
+    ticketPrice: 800
+  },
+  {
+    id: 'g3',
+    artistName: 'Electric Dreams',
+    genre: 'Electronic',
+    date: '2024-09-18T21:00:00',
+    time: '9:00 PM',
+    venueName: 'Fandom',
+    city: 'Bangalore',
+    ticketPrice: 600
+  },
+  {
+    id: 'g4',
+    artistName: 'Cosmic Wanderers',
+    genre: 'Rock',
+    date: '2024-09-20T19:00:00',
+    time: '7:00 PM',
+    venueName: 'Hard Rock Cafe',
+    city: 'Mumbai',
+    ticketPrice: 750
+  },
+  {
+    id: 'g5',
+    artistName: 'Fusion Collective',
+    genre: 'Fusion',
+    date: '2024-09-15T20:30:00',
+    time: '8:30 PM',
+    venueName: 'Blue Frog',
+    city: 'Pune',
+    ticketPrice: 550
+  },
+  {
+    id: 'g6',
+    artistName: 'Urban Beats',
+    genre: 'Hip-Hop',
+    date: '2024-09-22T21:30:00',
+    time: '9:30 PM',
+    venueName: 'Auro',
+    city: 'Delhi',
+    ticketPrice: 600
+  },
+  {
+    id: 'g7',
+    artistName: 'Folk Tales',
+    genre: 'Folk',
+    date: '2024-09-25T19:00:00',
+    time: '7:00 PM',
+    venueName: 'Prithvi Theatre',
+    city: 'Mumbai',
+    ticketPrice: 400
+  },
+  {
+    id: 'g8',
+    artistName: 'Synth Wave Crew',
+    genre: 'Electronic',
+    date: '2024-09-28T22:00:00',
+    time: '10:00 PM',
+    venueName: 'Kitty Su',
+    city: 'Delhi',
+    ticketPrice: 900
+  },
+  {
+    id: 'g9',
+    artistName: 'Acoustic Journeys',
+    genre: 'Acoustic',
+    date: '2024-09-20T18:30:00',
+    time: '6:30 PM',
+    venueName: 'The Quarter',
+    city: 'Mumbai',
+    ticketPrice: 450
+  },
+  {
+    id: 'g10',
+    artistName: 'Rhythmic Flow',
+    genre: 'Hip-Hop',
+    date: '2024-09-15T20:00:00',
+    time: '8:00 PM',
+    venueName: 'Levi\'s Lounge',
+    city: 'Bangalore',
+    ticketPrice: 500
+  },
+  {
+    id: 'g11',
+    artistName: 'Priya Melodies',
+    genre: 'Pop',
+    date: '2024-09-17T19:00:00',
+    time: '7:00 PM',
+    venueName: 'Summerhouse Cafe',
+    city: 'Delhi',
+    ticketPrice: 350
+  },
+  {
+    id: 'g12',
+    artistName: 'Mystic Strings',
+    genre: 'Classical',
+    date: '2024-09-24T18:00:00',
+    time: '6:00 PM',
+    venueName: 'NCPA',
+    city: 'Mumbai',
+    ticketPrice: 1200
+  },
+  {
+    id: 'g13',
+    artistName: 'Rock Revolution',
+    genre: 'Rock',
+    date: '2024-09-15T21:00:00',
+    time: '9:00 PM',
+    venueName: 'The Humming Tree',
+    city: 'Bangalore',
+    ticketPrice: 700
+  },
+  {
+    id: 'g14',
+    artistName: 'Blues Brothers',
+    genre: 'Rock',
+    date: '2024-09-16T20:30:00',
+    time: '8:30 PM',
+    venueName: 'Bonobo',
+    city: 'Mumbai',
+    ticketPrice: 600
+  },
+  {
+    id: 'g15',
+    artistName: 'The Guitar Project',
+    genre: 'Rock',
+    date: '2024-09-18T19:30:00',
+    time: '7:30 PM',
+    venueName: 'The Piano Man Jazz Club',
+    city: 'Delhi',
+    ticketPrice: 550
+  }
+];
+
 export const getCurrentMonth = () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 
                  'July', 'August', 'September', 'October', 'November', 'December'];

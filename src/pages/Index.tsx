@@ -4,10 +4,12 @@ import Header from '@/components/Header';
 import FilterSystem from '@/components/FilterSystem';
 import ArtistGrid from '@/components/ArtistGrid';
 import Footer from '@/components/Footer';
+import GigCalendar from '@/components/GigCalendar';
+import ContentSection from '@/components/ContentSection';
 import { mockArtists, Category, getCurrentMonth } from '@/data/mockData';
 
 const Index = () => {
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<string[]>(["Rock"]);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
   
@@ -42,6 +44,13 @@ const Index = () => {
           selectedCity={selectedCity}
           selectedCategories={selectedCategories}
         />
+        
+        <GigCalendar 
+          selectedGenre={selectedGenres.length > 0 ? selectedGenres[0] : "Rock"}
+          selectedCity={selectedCity}
+        />
+        
+        <ContentSection />
       </main>
       
       <Footer />

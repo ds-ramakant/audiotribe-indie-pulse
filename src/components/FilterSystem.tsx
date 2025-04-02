@@ -2,6 +2,13 @@
 import React, { useState } from 'react';
 import { genreOptions, cityOptions, categoryInfo, Category } from '@/data/mockData';
 import { Search } from 'lucide-react';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilterSystemProps {
   selectedGenres: string[];
@@ -23,13 +30,9 @@ const FilterSystem: React.FC<FilterSystemProps> = ({
   const [citySearchTerm, setCitySearchTerm] = useState('');
   const [showCityDropdown, setShowCityDropdown] = useState(false);
 
-  // Toggle genre selection
-  const toggleGenre = (genre: string) => {
-    if (selectedGenres.includes(genre)) {
-      setSelectedGenres(selectedGenres.filter(g => g !== genre));
-    } else {
-      setSelectedGenres([...selectedGenres, genre]);
-    }
+  // Handle genre selection from dropdown
+  const handleGenreChange = (genre: string) => {
+    setSelectedGenres([genre]);
   };
 
   // Toggle category selection
@@ -51,24 +54,25 @@ const FilterSystem: React.FC<FilterSystemProps> = ({
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h3 className="text-lg font-semibold mb-4">Filter Artists</h3>
         
-        {/* Genres */}
+        {/* Genre Dropdown */}
         <div className="mb-6">
-          <h4 className="text-sm font-medium text-music-muted mb-3">Genres</h4>
-          <div className="flex flex-wrap gap-2">
-            {genreOptions.map(genre => (
-              <button
-                key={genre}
-                onClick={() => toggleGenre(genre)}
-                className={`filter-pill ${
-                  selectedGenres.includes(genre) 
-                    ? 'filter-pill-active' 
-                    : 'filter-pill-inactive'
-                }`}
-              >
-                {genre}
-              </button>
-            ))}
-          </div>
+          <h4 className="text-sm font-medium text-music-muted mb-3">Genre</h4>
+          <Select 
+            defaultValue="Rock" 
+            onValueChange={handleGenreChange}
+            value={selectedGenres.length > 0 ? selectedGenres[0] : undefined}
+          >
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select a genre" />
+            </SelectTrigger>
+            <SelectContent>
+              {genreOptions.map(genre => (
+                <SelectItem key={genre} value={genre}>
+                  {genre}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         
         {/* City Selection */}
